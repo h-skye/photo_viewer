@@ -7,8 +7,12 @@ Node JS
 HTML5/CSS3
 
 Libaries being used:
-Nodemon - For convenience of server testing/channges
-Express - For better API building
+nodemon - For convenience of server testing/channges
+express - For better API building
+csvtojson - Converting csv to json formatting
+node-cache - Caching module that works like memcached (lightweight 55kb)
+  vs memory-cache (not as popular and was not updated as frequently)
+
 React - create-react-app
 
 ## React Component Structure

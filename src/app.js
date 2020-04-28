@@ -4,7 +4,7 @@ const async = require('async');
 const csv = require('csvtojson');
 const NodeCache = require('node-cache');
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000xw
 const myCache = new NodeCache();
 const app = express();
 
@@ -37,7 +37,6 @@ app.get('/images', async function (req, res) {
             return jsonCSV;
         }).then((jsoncsv) => {
             newCSVObj = filterJSON(jsoncsv);
-            console.log(typeof(newCSVObj))
 
             // Stores the csv object in a set time hour cache
             let success = myCache.set(hourTime.toString(), newCSVObj, hourTime)
@@ -72,6 +71,12 @@ app.get('/images', async function (req, res) {
     res.send(data);
 })
 
+app.listen(PORT, () => {
+	console.log('App is running on port: ' + PORT);
+});
+
+//---------------------------------------------------Non Routing --------------------------------------------
+
 // from each url, create a dictionary object with its id, width, and length
 const dimensionFunc = (url) => {
 	const splitUrl = url.split('/');
@@ -81,7 +86,6 @@ const dimensionFunc = (url) => {
 		    width: splitUrl[splitUrl.length-2],
 		    length: splitUrl[splitUrl.length-1]
 	};
-	//console.log(dimensions);
 	return dimensions;
 };
 
@@ -94,9 +98,5 @@ const filterJSON = (jsonObj) => {
 	}
 	return newCSVObj;
 };
-
-app.listen(PORT, () => {
-	console.log('App is running on port: ' + PORT);
-});
 
 
