@@ -4,7 +4,7 @@ const async = require('async');
 const csv = require('csvtojson');
 const NodeCache = require('node-cache');
 
-const PORT = process.env.PORT || 3000xw
+const PORT = process.env.PORT || 3000
 const myCache = new NodeCache();
 const app = express();
 
@@ -14,6 +14,13 @@ const csvFilePath = path.join(__dirname, './photos.csv');
 const hourTime = 60 * 60 // seconds * minutes
 let jsonCSV;
 let newCSVObj;
+
+// Enabling CORS headers for cross-domain requests
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 
 
 app.get('/images', async function (req, res) {
