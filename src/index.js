@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {/* <PhotoGallery /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -17,7 +17,7 @@ React - create-react-app
 
 ## React Component Structure
 
-1. Photo Grid
+1. Photo Gallery
   1a. filter component (dimensions)
       1a I. filtered components on sizes
       1a II. grayscale components
