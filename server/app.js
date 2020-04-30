@@ -7,6 +7,7 @@ const async = require('async');
 const csv = require('csvtojson');
 const NodeCache = require('node-cache');
 
+const helperFunc = require('./helper-funcs');
 const PORT = process.env.PORT || 3001
 const myCache = new NodeCache();
 const app = express();
@@ -51,7 +52,7 @@ app.get('/images', async function (req, res) {
             //console.log(jsonCSV);
             return jsonCSV;
         }).then((jsoncsv) => {
-            newCSVObj = filterJSON(jsoncsv);
+            newCSVObj = helperFunc.filterJSON(jsoncsv);
 
             // Stores the csv object in a set time hour cache
             let success = myCache.set(hourTime.toString(), newCSVObj, hourTime)
@@ -89,29 +90,4 @@ app.get('/images', async function (req, res) {
 app.listen(PORT, () => {
 	console.log('App is running on port: ' + PORT);
 });
-
-//---------------------------------------------------Non Routing --------------------------------------------
-
-// from each url, create a dictionary object with its id, width, and length
-const dimensionFunc = (url) => {
-	const splitUrl = url.split('/');
-	const dimensions = {
-            url: url,
-            id: splitUrl[splitUrl.length-3],
-		    width: splitUrl[splitUrl.length-2],
-		    length: splitUrl[splitUrl.length-1]
-	};
-	return dimensions;
-};
-
-// returns a new dict object for the cvs based on the url
-const filterJSON = (jsonObj) => {
-	let newCSVObj = [];
-	for (let value in jsonObj) {
-		let galleryPic = jsonObj[value];
-		newCSVObj.push(dimensionFunc(galleryPic.url));
-	}
-	return newCSVObj;
-};
-
 
