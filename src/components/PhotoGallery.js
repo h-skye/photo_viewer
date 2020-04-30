@@ -1,101 +1,45 @@
 import React, { Component } from 'react';
-import ReduxThunk from 'redux-thunk';
-import { createStore } from 'redux';
+import { connect } from 'react-redux'
 
+import { getImgsAsync } from '../redux/actions/img-actions'
 
-const images = () => {
-    const imgs = [];
-
-    fetch('/images')
-        .then((response) => {
-            return response.ok ? response.json() : Promise.reject('Cannot communicate with fetching images')
-        }).then((resultJSON) => {
-            
-            for (let value of resultJSON) {
-                imgs.push(value["url"])
-            }
-
-            return resultJSON
-        }).catch((err) => {
-            console.log('error in fetching');
-        })
-    console.log(imgs)
-    return imgs;
-}
-
-console.log(images)
-
-
-export default class PhotoGallery extends Component {
+class PhotoGallery extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-          images: []
-        }
-        // console.log('inside state: ' + this.state.imageResults)
-      }
-    
+        this.props = props;
+    }
+
     componentDidMount() {
-        fetch('/images')
-            .then((response) => {
-                return response.ok ? response.json() : Promise.reject('Cannot communicate with fetching images')
-            }).then((resultJSON) => {
+        this.props.getImgsAsync()
+    }
 
-                let imgURLs = []
-                for (let value of resultJSON) {
-                    imgURLs.push(value["url"])
-                }
-
-                this.setState( {images: imgURLs, function () {
-                    console.log('img urls: ' + imgURLs)
-                }})
-
-                this.setState( {imageResults: resultJSON}, function() {
-                    console.log('state is: ' + this.state.imageResults)
-                })
-
-            }).catch((err) => {
-                console.log('error in mounting: ' + err);
-            })        
+    renderImages(imgUrls) {
+        return imgUrls.map(imgUrl => (
+            <div className="image-wrapper" key={imgUrl}>
+                <img className="image-item" src={imgUrl} />
+            </div>
+        ));
     }
 
     render() {
-        console.log('Render triggering')
-        console.log(images)
-
-        // console.log(this.state.images)
-
-        // if (this.state.images) {
-        //     var imgRender = this.state.images.map((img, index) => {
-        //         console.log('img url is : ' + img)
-        //         var image = img ? <img src={img} id={index} /> : null
-    
-        //         return (
-        //             {image}
-        //         )
-        //     })
-        // }
-
-        // for (let i = 0; i < this.state.images.length; i++) {
-        //     console.log(this.state.images[i])
-        // }
-
-        // let imgRender = this.state.images.map((img, index) => {
-        //     console.log('img url is : ' + img)
-        //     const image = img ? <img src={img} id={index} /> : null
-
-        //     return (
-        //         {image}
-        //     )
-        // })
+        const { images } = this.props;
 
         return (
-            <div> 
-                {/* {imgRender} */}
-                <h1> Test </h1>
+            <div className="gallery"> 
+                <div className="image-list">
+                    {this.renderImages(images)}
+                </div>
             </div>
         )
-
     }
-
 }
+
+const mapStateToProps = state => ({
+    images: state.images.images
+});
+
+const mapDispatchToProps = {
+    getImgsAsync
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoGallery);
