@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import PhotoGallery from './components/PhotoGallery'
+
+import { Provider } from 'react-redux';
+import configureStore from './store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  (<React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>),
   document.getElementById('root')
 );
-
-ReactDOM.render(<PhotoGallery />, document.getElementById('main'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();

@@ -6,14 +6,24 @@ Tech Stack:
 Node JS
 HTML5/CSS3
 
-Libaries being used:
+## Libaries being used:
+
 nodemon - For convenience of server testing/channges
 express - For better API building
+
 csvtojson - Converting csv to json formatting
+
 node-cache - Caching module that works like memcached (lightweight 55kb)
   vs memory-cache (not as popular and was not updated as frequently)
 
-React - create-react-app
+React - create-react-app 
+  vs setting up webpack which can take awhile
+
+react-thunk
+  vs react-saga for pure funnctions and better side effects handling
+  react-saga is better for large scale and this is an SPA handling small routing
+
+
 
 ## React Component Structure
 
