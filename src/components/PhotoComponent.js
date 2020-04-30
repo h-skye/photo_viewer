@@ -8,14 +8,6 @@ class PhotoComponent {
         this.url = this.props.url
     }
 
-    componentDidMount() {
-        fetch('/images')
-        .then((res) => 
-        console.log(res)
-        res.json())
-        // .then()
-    }
-
     render() {
         return (
             <div>
