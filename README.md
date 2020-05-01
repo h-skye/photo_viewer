@@ -100,16 +100,29 @@ https://joelhooks.com/blog/2016/03/20/build-an-image-gallery-using-redux-saga
 
 ## Test Screenshots
 
+### Fetching cache retrieval 
 
 ![Test Image 1](/test_SS/1.png)
 
+Cache retrieval on sucess
 
 ![Test Image 1](/test_SS/1b.png)
 
-![Test Image 1](/test_SS/2.png)
+### fetching images based on query params
 
-![Test Image 1](/test_SS/2b.png)
+![Test Image 2](/test_SS/2.png)
 
-![Test Image 1](/test_SS/3a.png)
+Using cache to filter for query params true
 
-![Test Image 1](/test_SS/3b.png)
+![Test Image 2](/test_SS/2b.png)
+
+
+### Token testing
+
+With token 
+
+![Test Image 3](/test_SS/3a.png)
+
+Without Tokem
+
+![Test Image 3](/test_SS/3b.png)
