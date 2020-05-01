@@ -68,7 +68,6 @@ Front End:
 1. Components
 
   1a. App
-  
     1b. Photo Gallery
 
 
