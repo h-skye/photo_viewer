@@ -32,6 +32,11 @@ app.use(express.static(publicPath))
 
 app.get('/images', async function (req, res) {
     console.log('Sending request to fetch images from file')
+    const page = req.query.page
+    const limit = req.query.limit
+    const startIndex = (page - 1) * limit
+    const endIndex = page * limit
+
     let data = await csv()
         /*  If fetching from an url then this would switch to a stream and return a new promise.
             Then I can just pipe that readstream to put it to this route with my new dict obj
@@ -84,7 +89,17 @@ app.get('/images', async function (req, res) {
             return Promise.reject(err);
         });
     console.log('Fetching images from cache finished')
-    res.send(data);
+    
+    if (page && limit) {
+        const paginatedResults = data.slice(startIndex, endIndex) 
+        console.log('Fetching images from cache finished')
+        res.send(paginatedResults)
+    } else {
+        console.log('Fetching images from cache finished')
+        res.send(data)
+    }
+
+    // res.send(data);
 })
 
 app.listen(PORT, () => {
