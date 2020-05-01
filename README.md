@@ -49,9 +49,13 @@ Currently the homepage just renders all the images using React/Redux
 From homepage -> user logins -> gets verified -> redirects to /images
 
 Things missing:
+
 Front End:
+
   I. Filtering dimension drop down
+  
   II. Infinite scrolling passed on backend pagination fetch/re-render component
+  
   III. Toggle grayscale checkbox
 
   Bugs:
