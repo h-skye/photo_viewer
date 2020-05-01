@@ -40,6 +40,8 @@ Build the server using on one terminal:
 Build the react components on another terminal:
 ```npm start```
 
+Notes: server runs locally port 3001, on build react integrates with it and development are separate (react on 3000, server on 3001)
+
 ## Walkthrough
 
 Generally you would have a home page and then a user or some verification to see images/feed (i.e. instagram)
@@ -126,3 +128,11 @@ With token
 Without Tokem
 
 ![Test Image 3](/test_SS/3b.png)
+
+
+### Grayscale testing
+![Test Image 4](/test_SS/4.png)
+
+
+### Production testing
+![Test Image 5](/test_SS/5.png)
