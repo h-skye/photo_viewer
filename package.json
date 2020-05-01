@@ -9,7 +9,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "react-scripts test",
-    "server": "nodemon server/app.js",
+    "nodemon": "nodemon server/app.js",
+    "server": "node server/app.js",
     "start": "react-scripts start"
   },
   "dependencies": {
@@ -17,8 +18,10 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "async": "^3.2.0",
+    "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "node-cache": "^5.1.0",
     "nodemon": "^2.0.3",
     "react": "^16.13.1",
