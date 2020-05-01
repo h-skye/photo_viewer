@@ -88,19 +88,6 @@ II. ?page= && limit=
 
 III. ?token=
 
-## Sources used:
-
-Redux Project with create-react-app
-
-https://medium.com/backticks-tildes/setting-up-a-redux-project-with-create-react-app-e363ab2329b8
-
-https://dev.to/bnorbertjs/async-react-basics-with-redux-thunk--redux-saga-4af7
-
-https://dzone.com/articles/loading-data-in-react-redux-thunk-redux-saga-suspe
-
-Image Galler using React, Redux and redux-saga
-https://joelhooks.com/blog/2016/03/20/build-an-image-gallery-using-redux-saga
-
 ## Test Screenshots
 
 ### Fetching cache retrieval 
