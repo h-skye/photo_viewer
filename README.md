@@ -101,15 +101,15 @@ https://joelhooks.com/blog/2016/03/20/build-an-image-gallery-using-redux-saga
 ## Test Screenshots
 
 
-(/test_SS/1.png)
+!(/test_SS/1.png)
 
 
-(/test_SS/1b.png)
+!(/test_SS/1b.png)
 
-(/test_SS/2.png)
+!(/test_SS/2.png)
 
-(/test_SS/2b.png)
+!(/test_SS/2b.png)
 
-(/test_SS/3a.png)
+!(/test_SS/3a.png)
 
-(/test_SS/3b.png)
+!(/test_SS/3b.png)
